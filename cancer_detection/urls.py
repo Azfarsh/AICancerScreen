@@ -15,5 +15,6 @@ urlpatterns = [
     path('how-it-works/', views.how_it_works, name='how_it_works'),  # How It Works page
     path('pricing/', views.pricing, name='pricing'),  # Pricing page
     path('testimonials/', views.testimonials, name='testimonials'),  # Testimonials page
+    path('dashboard/', views.dashboard, name='dashboard'),  # dashboard page
     path('subscribe-newsletter/', views.subscribe_newsletter, name='subscribe_newsletter'),  # Newsletter subscription
 ]

@@ -1,0 +1,251 @@
+<!-- dashboard.html in the templates folder -->
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Add your CSS or import external CSS files */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7fa;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        /* Sidebar Styles */
+        .sidebar {
+            background-color: #0052cc;
+            width: 250px;
+            padding: 20px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar h2 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+        .sidebar ul li {
+            padding: 10px 0;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+        .sidebar ul li a i {
+            margin-right: 10px;
+        }
+        /* Header Styles */
+        .header {
+            background-color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header .search-box {
+            display: flex;
+            align-items: center;
+        }
+        .header .search-box input {
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+        }
+        .header .profile {
+            display: flex;
+            align-items: center;
+        }
+        .header .profile img {
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+        /* Main Content Styles */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .stat-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+            margin-right: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+        .stat-card i {
+            font-size: 40px;
+            color: #0052cc;
+        }
+        .stat-card h3 {
+            margin: 10px 0;
+        }
+        .chart {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .doctor-card {
+            background-color: #0052cc;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .doctor-card img {
+            border-radius: 50%;
+        }
+        .doctor-info {
+            margin-top: 10px;
+        }
+        .table-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table thead {
+            background-color: #0052cc;
+            color: white;
+        }
+        table thead th {
+            padding: 10px;
+        }
+        table tbody td {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Hospital App</h2>
+        <ul>
+            <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="#"><i class="fas fa-user-md"></i> Doctors</a></li>
+            <li><a href="#"><i class="fas fa-user"></i> Patients</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i> Messages</a></li>
+            <li><a href="#"><i class="fas fa-pills"></i> Medications</a></li>
+            <li><a href="#"><i class="fas fa-file-alt"></i> Documents</a></li>
+            <li><a href="#"><i class="fas fa-cogs"></i> Settings</a></li>
+            <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <div class="search-box">
+                <input type="text" placeholder="Search">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="profile">
+                <i class="fas fa-bell"></i>
+                <img src="{% static 'images/profile.jpg' %}" alt="Profile" width="40">
+                <span>Antonio Murray</span>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats">
+            <div class="stat-card">
+                <i class="fas fa-users"></i>
+                <h3>45</h3>
+                <p>New Patient</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-user-md"></i>
+                <h3>23</h3>
+                <p>Our Doctor</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-heartbeat"></i>
+                <h3>14</h3>
+                <p>Operation</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-dollar-sign"></i>
+                <h3>$5728</h3>
+                <p>Income</p>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="chart" id="patient-status-chart">
+            <!-- Placeholder for Django Plotly Dash -->
+            <h3>Patient Status</h3>
+            <p>Graph: Recovered vs Death</p>
+            <!-- Django Plotly Dash will render the graph here -->
+        </div>
+
+        <!-- Doctor Section -->
+        <div class="doctor-card">
+            <img src="{% static 'images/doctor.jpg' %}" alt="Doctor" width="100">
+            <div class="doctor-info">
+                <h3>Dr. Jonathan Wallace</h3>
+                <p>Endocrinologist - Sidney Hospital</p>
+                <p>8 Years of Experience</p>
+                <p>Patients: 2,598</p>
+                <p>Reviews: 1,537</p>
+            </div>
+        </div>
+
+        <!-- Tables Section -->
+        <div class="table-container">
+            <h3>Appointment Requests</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Disease</th>
+                        <th>Phone</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Daniel Smith</td>
+                        <td>Diabetes</td>
+                        <td>152-660-5561</td>
+                        <td>04/03/2020 - 10 AM</td>
+                        <td>Accepted</td>
+                    </tr>
+                    <!-- More rows -->
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

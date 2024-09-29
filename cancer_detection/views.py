@@ -35,6 +35,9 @@ def pricing(request):
 def testimonials(request):
     return render(request, 'testimonials.html')  # Render testimonials.html
 
+def dashboard(request):
+    return render(request, 'dashboard.html')  # Render dashboard.html
+
 def subscribe_newsletter(request):
     if request.method == 'POST':
         email = request.POST.get('email')
