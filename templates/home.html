@@ -1,0 +1,284 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - AICancerScreen{% endblock %}
+
+{% block content %}
+<style>
+    /* Existing styles for hero section */
+    .image{
+        background-image: url("https://img.freepik.com/free-photo/woman-with-skin-cancer-talking-with-doctor_23-2148988507.jpg?t=st=1727558223~exp=1727561823~hmac=50799f51f586145e5be7e40b5b3bf95f3c791a1f41efdd5352a6f7dcf9283d05&w=996");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 400px 0 55px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-top: 2px;
+
+    }
+    .hero {
+       
+        padding: 10px 0 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-top: 2px;
+    }
+
+    .hero-content {
+        width: 80%;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        background-color: #0046ff;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+        background-color: #0035c2;
+    }
+
+    .hero-stats {
+        width: 80%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+
+    .stat-item {
+        text-align: center;
+        margin: 0 10px;
+    }
+
+    .stat-item h3 {
+        font-size: 24px;
+        margin: 0;
+    }
+
+    .stat-item p {
+        font-size: 14px;
+        margin: 5px 0 0 0;
+    }
+
+    /* New styles for medical services section */
+    .medical-services {
+        background-color: #f5f5f5;
+        padding: 50px 0;
+    }
+
+    .services-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .services-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .services-header h2 {
+        font-size: 32px;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .services-header p {
+        font-size: 16px;
+        color: #666;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+    }
+
+    .service-card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+    }
+
+    .service-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .service-icon {
+        font-size: 40px;
+        color: #0046ff;
+        margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+        font-size: 20px;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .service-card p {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 15px;
+    }
+
+    .read-more {
+        color: #0046ff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .featured-treatment {
+        background-color: #001f4d;
+        color: white;
+        border-radius: 10px;
+        padding: 30px;
+        grid-column: span 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .featured-content {
+        flex: 1;
+    }
+
+    .featured-treatment h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .featured-treatment p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .featured-image {
+        flex: 1;
+        text-align: right;
+    }
+
+    .featured-image img {
+        max-width: 100%;
+        border-radius: 10px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .featured-treatment {
+            grid-column: span 1;
+            flex-direction: column;
+        }
+
+        .featured-image {
+            margin-top: 20px;
+        }
+    }
+</style>
+
+<main>
+    <section class="backimage">
+        <div class="image"></div>
+    </section>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>AI-Powered Cancer Screening Solutions</h1>
+            <p>Revolutionizing early detection and diagnosis with cutting-edge artificial intelligence. We're here to save lives and improve healthcare outcomes.</p>
+            <a href="#" class="btn">Learn More</a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <h3>98%</h3>
+                <p>Accuracy in Early Detection</p>
+            </div>
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Partner Hospitals and Clinics</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="medical-services">
+        <div class="services-container">
+            <div class="services-header">
+                <h2>Our Screening Services</h2>
+                <p>Comprehensive care for your health and well-being</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">♋ </div>
+                    <h3>Breast Cancer Screening</h3>
+                    <p>Advanced AI analysis of mammograms for early breast cancer detection.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🫁</div>
+                    <h3>Lung Cancer Screening</h3>
+                    <p>AI-powered analysis of chest X-rays and CT scans for lung abnormalities.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🩺</div>
+                    <h3>Skin Cancer Screening</h3>
+                    <p>AI-assisted dermatological image analysis for skin cancer detection.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👁️</div>
+                    <h3>Colon Cancer Screening</h3>
+                    <p>AI analysis of colonoscopy images for early detection of colon polyps and cancer.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧠</div>
+                    <h3>Cervical Cancer Screening</h3>
+                    <p>AI-enhanced analysis of Pap smear results for improved accuracy.</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+                <div class="featured-treatment">
+                    <div class="featured-content">
+                        <h3>We Provide Best Medical Treatment</h3>
+                        <p>Our team of experienced doctors ensures you receive the highest quality care.</p>
+                        <a href="#" class="btn">Book Appointment</a>
+                    </div>
+                    <div class="featured-image"> 
+                        <img src="https://i.pinimg.com/564x/79/59/a4/7959a41bd0ab57637b3f4f6a03f9825d.jpg" alt="Doctor with patient">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

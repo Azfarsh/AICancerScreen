@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AICancerScreen</title>
+    {% load static %}  <!-- Load static template tag -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            position: relative;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        header {
+            background-color: rgba(0, 70, 255, 0.8);
+            color: white;
+            padding: 20px 0;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+        nav ul li {
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px 0;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-content {
+            width: 50%;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .btn {
+            background-color: white;
+            color: #0046ff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .background {
+            position: absolute;
+            top: 80px; /* Adjust based on navbar height */
+            left: 0;
+            width: 100%;
+            height: calc(50vh - 80px); /* Half of viewport height minus navbar height */
+            background-image: url("https://img.freepik.com/free-photo/woman-with-skin-cancer-talking-with-doctor_23-2148988507.jpg?t=st=1727558223~exp=1727561823~hmac=50799f51f586145e5be7e40b5b3bf95f3c791a1f41efdd5352a6f7dcf9283d05&w=996");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="{% static 'images/logo.png' %}" alt="AICancerScreen Logo" style="width: 100px;">
+                </div>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Pages</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+                <div class="contact">
+                    <span>Call us at: +012 (345) 6789</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="background"></div> <!-- Background image div -->
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>AI-Powered Cancer Screening Solutions</h1>
+                <p>Revolutionizing early detection and diagnosis with cutting-edge artificial intelligence. We're here to save lives and improve healthcare outcomes.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>Accuracy in Early Detection</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Partner Hospitals and Clinics</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="services">
+            <h2>Our Screening Services</h2>
+            <!-- Add your services here -->
+        </section>
+    </main>
+</body>
+</html>

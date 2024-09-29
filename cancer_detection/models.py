@@ -12,8 +12,8 @@ class MedicalImage(models.Model):
 
 class GenomicData(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
-    data = models.JSONField()
-
+    data = models.JSONField()                            #python manage.py make migrations
+                                                         # python manage.py migrate
 class CancerType(models.Model):
     name = models.CharField(max_length=100)
     stage = models.CharField(max_length=50)
