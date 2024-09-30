@@ -21,21 +21,27 @@
         }
 
         header {
-            background: rgb(28, 79, 232); /* Changed to blue */
+            background: rgb(246, 249, 249); /* Changed to blue */
             color: #fff;
             padding: 0.5rem 0; /* Fixed padding */
         }
-
+        
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem; /* Added horizontal padding */
+            padding: 0 1rem; /* Added horizontal padding */
+            height : 2.5rem;
+           
         }
+        
+      
 
         .logo img {
-            height: 60px; /* Adjust logo height */
+           
+            height: 50px; /* Adjust logo height */
             padding: 5px 10px; /* Padding around the logo */
+            border-radius: 10px;
         }
 
         nav ul {
@@ -50,7 +56,7 @@
         }
 
         nav a {
-            color: #fff;
+            color: #096ff6;
             text-decoration: none;
             font-weight: bold;
             padding: 10px 15px; /* Added padding to links */
@@ -62,13 +68,13 @@
         }
 
         nav .contact {
-            color: #fff;
+            color: hwb(239 16% 5%);
             margin-left: 20px; /* Add space to the left of the contact text */
         }
 
         footer {
             background: rgb(50, 49, 49);
-            color: #fff;
+            color: #f7fbfc;
             padding: 1rem 0;
             text-align: center;
             margin-top: auto;
@@ -98,11 +104,11 @@
 
         .social-links a {
             margin: 0 0.5rem;
-            color: #ffedcc;
+            color: #f9f8f5;
         }
 
         .social-links a:hover {
-            color: #fff;
+            color: #ffffff;
         }
 
         .footer-bottom {
@@ -116,7 +122,7 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    <img src="{% static 'images/Cancerlogo.png' %}" alt="AICancerScreen Logo">
+                    <img src="{% static 'images/CANCER CURE.png' %}" alt="AICancerScreen Logo" style="height: 60px;"> <!-- Updated logo path -->
                 </div>
                 
                 <ul>
@@ -131,6 +137,7 @@
             </nav>
         </div>
     </header>
+    
 
     <div class="container">
         {% block content %}
@@ -146,19 +153,19 @@
             <div class="footer-section">
                 <h3>Resources</h3>
                 <ul>
-                    <li><a href="{% url 'blog' %}">Blog</a></li>
-                    <li><a href="{% url 'whitepapers' %}">Whitepapers</a></li>
-                    <li><a href="{% url 'webinars' %}">Webinars</a></li>
-                    <li><a href="{% url 'faq' %}">FAQ</a></li>
+                    <li>Blog</li>
+                    <li>Whitepapers</li>
+                    <li>Webinars</li>
+                    <li>FAQ</li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'how_it_works' %}">How It Works</a></li>
-                    <li><a href="{% url 'pricing' %}">Pricing</a></li>
-                    <li><a href="{% url 'testimonials' %}">Testimonials</a></li>
+                    <li>Home</li>
+                    <li>How It Works</li>
+                    <li> Pricing</li>
+                    <li>Testimonials</li>
                 </ul>
             </div>
             <div class="footer-section">

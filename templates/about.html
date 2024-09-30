@@ -1,46 +1,127 @@
+<!-- templates/about.html -->
 {% extends 'base.html' %}
 
-{% block title %}About Us - AICancerScreen{% endblock %}
+{% block title %}
+About Us - AICancerScreen
+{% endblock %}
 
 {% block content %}
-    <div style="padding: 60px 20px; max-width: 900px; margin: auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);">
-        <h2 style="color: #2c3e50; font-size: 2.5em; margin-bottom: 20px;">About AICancerScreen</h2>
-        <p style="font-size: 18px; line-height: 1.6; color: #555;">
-            At AICancerScreen, our mission is to redefine the landscape of cancer detection by harnessing the power of artificial intelligence. We are dedicated to developing cutting-edge solutions that enable early detection of various cancer types, ultimately saving lives through timely intervention and improved patient outcomes.
+<!-- About Us Section -->
+<section style="padding: 40px 0; background-color: #fff;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+        <h1 style="text-align: center; color: #1c4fe8; margin-bottom: 20px;">About AICancerScreen</h1>
+        <p style="font-size: 18px; line-height: 1.8; color: #555; text-align: center; max-width: 800px; margin: 0 auto;">
+            AICancerScreen is at the forefront of utilizing artificial intelligence to revolutionize cancer detection and diagnosis. Our mission is to empower healthcare providers with advanced tools that facilitate early detection, accurate classification, and effective management of various cancer types, ultimately improving patient outcomes and saving lives.
         </p>
-        
-        <div style="margin-top: 40px;">
-            <h3 style="color: #2980b9; font-size: 2em;">Our Vision</h3>
-            <p style="font-size: 18px; line-height: 1.6; color: #555;">
-                Our vision is to create a world where cancer is detected at its earliest stages, leading to effective treatment options and significantly reduced mortality rates. We believe that with the right technology and data, we can empower healthcare providers to make informed decisions, ultimately enhancing patient care and survival rates.
-            </p>
-        </div>
-        
-        <div style="margin-top: 40px;">
-            <h3 style="color: #2980b9; font-size: 2em;">Technology Behind AICancerScreen</h3>
-            <p style="font-size: 18px; line-height: 1.6; color: #555;">
-                AICancerScreen employs state-of-the-art machine learning algorithms that analyze various data types, including medical images, genomic data, and electronic health records. Our platform is designed to:
-            </p>
-            <ul style="font-size: 18px; color: #555; margin-left: 20px;">
-                <li>Identify high-risk patients through predictive analytics.</li>
-                <li>Classify cancer types and stages with high accuracy.</li>
-                <li>Provide real-time alerts to healthcare providers for further screening and intervention.</li>
-                <li>Continuously learn from new data to improve detection algorithms.</li>
-            </ul>
-        </div>
-        
-        <div style="margin-top: 40px;">
-            <h3 style="color: #2980b9; font-size: 2em;">Our Team</h3>
-            <p style="font-size: 18px; line-height: 1.6; color: #555;">
-                Our diverse team of experts brings together a wealth of knowledge in data science, oncology, and healthcare. We are passionate about utilizing AI to make a meaningful impact on cancer detection and patient care. Each member of our team is dedicated to pushing the boundaries of what is possible in cancer research and detection technology.
-            </p>
-        </div>
-        
-        <div style="margin-top: 40px;">
-            <h3 style="color: #2980b9; font-size: 2em;">Get Involved</h3>
-            <p style="font-size: 18px; line-height: 1.6; color: #555;">
-                We invite healthcare professionals, researchers, and innovators to join us in our mission. Together, we can drive advancements in cancer detection, ensuring that patients receive the timely care they need. If you're interested in collaborating or learning more about our initiatives, please <a href="{% url 'contact' %}" style="color: #2980b9; text-decoration: underline;">contact us</a>.
-            </p>
+    </div>
+</section>
+
+<!-- Our Mission Section -->
+<section style="padding: 40px 0; background-color: #f9f9f9;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="color: #333; margin-bottom: 20px;">Our Mission</h2>
+        <p style="font-size: 16px; line-height: 1.6; color: #555;">
+            At AICancerScreen, our mission is to leverage cutting-edge AI technologies to detect cancer at its earliest stages. By analyzing comprehensive data sets, including medical images, genomic data, and electronic health records, we aim to provide healthcare professionals with actionable insights that enable timely and precise interventions.
+        </p>
+        <ul style="font-size: 16px; line-height: 1.6; color: #555; margin-left: 20px;">
+            <li>Identify high-risk patients through predictive analytics.</li>
+            <li>Alert healthcare providers for further screening and diagnostic testing.</li>
+            <li>Classify cancer types and stages with unparalleled accuracy.</li>
+            <li>Enhance overall cancer detection rates and improve patient survival rates.</li>
+        </ul>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section style="padding: 40px 0; background-color: #fff;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="color: #333; margin-bottom: 20px;">How It Works</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+            <!-- Data Collection -->
+            <div style="flex: 1 1 300px; background-color: #f0f0f0; padding: 20px; border-radius: 8px;">
+                <h3 style="color: #1c4fe8;">Data Collection</h3>
+                <p style="font-size: 16px; line-height: 1.6; color: #555;">
+                    We aggregate diverse data types, including medical imaging (MRI, CT scans, X-rays), genomic sequences, and comprehensive electronic health records. This multifaceted approach ensures a holistic understanding of each patient's health status.
+                </p>
+            </div>
+            <!-- Data Processing -->
+            <div style="flex: 1 1 300px; background-color: #f0f0f0; padding: 20px; border-radius: 8px;">
+                <h3 style="color: #1c4fe8;">Data Processing</h3>
+                <p style="font-size: 16px; line-height: 1.6; color: #555;">
+                    Utilizing advanced machine learning algorithms, our system processes and analyzes the collected data to identify patterns and correlations that are indicative of cancer presence and progression.
+                </p>
+            </div>
+            <!-- Prediction & Classification -->
+            <div style="flex: 1 1 300px; background-color: #f0f0f0; padding: 20px; border-radius: 8px;">
+                <h3 style="color: #1c4fe8;">Prediction & Classification</h3>
+                <p style="font-size: 16px; line-height: 1.6; color: #555;">
+                    The AI model predicts the likelihood of cancer in patients and classifies the type and stage with high accuracy, providing critical information that aids in making informed clinical decisions.
+                </p>
+            </div>
         </div>
     </div>
+</section>
+
+<!-- Technology & Innovation Section -->
+<section style="padding: 40px 0; background-color: #f9f9f9;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="color: #333; margin-bottom: 20px;">Technology & Innovation</h2>
+        <p style="font-size: 16px; line-height: 1.6; color: #555;">
+            Our platform is built on state-of-the-art technologies that ensure reliability, scalability, and accuracy. We continuously integrate the latest advancements in AI and machine learning to enhance our system's capabilities.
+        </p>
+        <ul style="font-size: 16px; line-height: 1.6; color: #555; margin-left: 20px;">
+            <li><strong>Deep Learning:</strong> Utilizing convolutional neural networks (CNNs) for image analysis.</li>
+            <li><strong>Genomic Analysis:</strong> Leveraging bioinformatics tools for genetic data interpretation.</li>
+            <li><strong>Big Data Processing:</strong> Ensuring efficient handling of large datasets through distributed computing.</li>
+            <li><strong>Cloud Integration:</strong> Providing scalable and secure access to data and computational resources.</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Benefits Section -->
+<section style="padding: 40px 0; background-color: #fff;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="color: #333; margin-bottom: 20px;">Benefits</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+            <!-- Early Detection -->
+            <div style="flex: 1 1 300px; background-color: #f0f0f0; padding: 20px; border-radius: 8px;">
+                <h3 style="color: #1c4fe8;">Early Detection</h3>
+                <p style="font-size: 16px; line-height: 1.6; color: #555;">
+                    Detecting cancer at an early stage significantly increases the chances of successful treatment and survival. Our AI-driven solution ensures that high-risk individuals are identified promptly.
+                </p>
+            </div>
+            <!-- Accurate Classification -->
+            <div style="flex: 1 1 300px; background-color: #f0f0f0; padding: 20px; border-radius: 8px;">
+                <h3 style="color: #1c4fe8;">Accurate Classification</h3>
+                <p style="font-size: 16px; line-height: 1.6; color: #555;">
+                    Precise classification of cancer types and stages allows for personalized treatment plans, enhancing the effectiveness of therapies and reducing unnecessary interventions.
+                </p>
+            </div>
+            <!-- Enhanced Patient Outcomes -->
+            <div style="flex: 1 1 300px; background-color: #f0f0f0; padding: 20px; border-radius: 8px;">
+                <h3 style="color: #1c4fe8;">Enhanced Patient Outcomes</h3>
+                <p style="font-size: 16px; line-height: 1.6; color: #555;">
+                    By enabling early and accurate detection, our solution contributes to better patient outcomes, improved quality of life, and reduced healthcare costs through timely interventions.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Future Goals Section -->
+<section style="padding: 40px 0; background-color: #f9f9f9;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="color: #333; margin-bottom: 20px;">Future Goals</h2>
+        <p style="font-size: 16px; line-height: 1.6; color: #555;">
+            While we have made significant strides in AI-powered cancer detection, we are committed to continuous improvement and innovation. Our future goals include:
+        </p>
+        <ul style="font-size: 16px; line-height: 1.6; color: #555; margin-left: 20px;">
+            <li>Expanding our dataset to include more diverse populations and cancer types.</li>
+            <li>Integrating real-time data analysis for instantaneous predictions and alerts.</li>
+            <li>Collaborating with leading research institutions to refine our algorithms.</li>
+            <li>Enhancing user interfaces for seamless integration into existing healthcare systems.</li>
+            <li>Ensuring data privacy and security through robust encryption and compliance with healthcare regulations.</li>
+        </ul>
+    </div>
+</section>
 {% endblock %}

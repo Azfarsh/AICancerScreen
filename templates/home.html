@@ -6,20 +6,20 @@
 {% block content %}
 <style>
     /* Existing styles for hero section */
-    .image{
-        background-image: url("https://img.freepik.com/free-photo/woman-with-skin-cancer-talking-with-doctor_23-2148988507.jpg?t=st=1727558223~exp=1727561823~hmac=50799f51f586145e5be7e40b5b3bf95f3c791a1f41efdd5352a6f7dcf9283d05&w=996");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        padding: 400px 0 55px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        margin-top: 2px;
+    .image {
+    background-image: url("{% static 'images/womencancerimg.jpg' %}"); /* Use Django's static tag */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 500px 0 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 0px;
+}
 
-    }
     .hero {
        
         padding: 10px 0 50px;
