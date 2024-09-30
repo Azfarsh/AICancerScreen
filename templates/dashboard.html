@@ -1,19 +1,19 @@
-<!-- dashboard.html in the templates folder -->
 <!DOCTYPE html>
 <html lang="en">
-    {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hospital Dashboard</title>
+    {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        /* Add your CSS or import external CSS files */
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #f4f7fa;
             margin: 0;
+            padding: 0;
+            overflow-x: hidden;
         }
         .container {
             display: flex;
@@ -27,6 +27,8 @@
             color: white;
             display: flex;
             flex-direction: column;
+            height: 100vh;
+            overflow-y: auto;
         }
         .sidebar h2 {
             font-size: 20px;
@@ -55,6 +57,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .header .search-box {
             display: flex;
@@ -78,20 +81,24 @@
         .main-content {
             flex: 1;
             padding: 20px;
+            overflow-y: auto;
         }
         .stats {
             display: flex;
             justify-content: space-between;
             margin-bottom: 20px;
+            flex-wrap: wrap;
         }
         .stat-card {
             background-color: white;
             padding: 20px;
             border-radius: 10px;
-            flex: 1;
+            flex: 1 1 20%;
             margin-right: 20px;
+            margin-bottom: 20px;
             text-align: center;
             font-size: 18px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .stat-card i {
             font-size: 40px;
@@ -100,11 +107,13 @@
         .stat-card h3 {
             margin: 10px 0;
         }
+        /* Chart Section */
         .chart {
             background-color: white;
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .doctor-card {
             background-color: #0052cc;
@@ -112,6 +121,8 @@
             padding: 20px;
             border-radius: 10px;
             text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .doctor-card img {
             border-radius: 50%;
@@ -119,10 +130,14 @@
         .doctor-info {
             margin-top: 10px;
         }
+        /* Scrollable Table Container */
         .table-container {
             background-color: white;
             padding: 20px;
             border-radius: 10px;
+            max-height: 300px;
+            overflow-y: scroll;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         table {
             width: 100%;
@@ -138,6 +153,14 @@
         table tbody td {
             padding: 10px;
             border-bottom: 1px solid #ccc;
+        }
+        .prediction-alert {
+            background-color: #ffcc00;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -198,12 +221,15 @@
             </div>
         </div>
 
-        <!-- Charts Section -->
-        <div class="chart" id="patient-status-chart">
-            <!-- Placeholder for Django Plotly Dash -->
-            <h3>Patient Status</h3>
-            <p>Graph: Recovered vs Death</p>
-            <!-- Django Plotly Dash will render the graph here -->
+        <!-- Prediction Alerts -->
+        <div class="prediction-alert">
+            <p>⚠️ High-Risk Patients Detected: Monitor Immediately</p>
+        </div>
+
+        <!-- Cancer Statistics Chart Section -->
+        <div class="chart" id="cancer-statistics-chart">
+            <h3>Cancer Detection Statistics</h3>
+            <!-- Django Plotly Dash Graph will be rendered here -->
         </div>
 
         <!-- Doctor Section -->
@@ -212,38 +238,34 @@
             <div class="doctor-info">
                 <h3>Dr. Jonathan Wallace</h3>
                 <p>Endocrinologist - Sidney Hospital</p>
-                <p>8 Years of Experience</p>
-                <p>Patients: 2,598</p>
-                <p>Reviews: 1,537</p>
+                <p>Phone: +1 234 567 890</p>
             </div>
         </div>
 
-        <!-- Tables Section -->
+        <!-- Patients Being Monitored -->
         <div class="table-container">
-            <h3>Appointment Requests</h3>
+            <h3>Current Patients Being Monitored</h3>
             <table>
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Disease</th>
-                        <th>Phone</th>
-                        <th>Date</th>
+                        <th>Age</th>
+                        <th>Condition</th>
                         <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for patient in patients %}
                     <tr>
-                        <td>Daniel Smith</td>
-                        <td>Diabetes</td>
-                        <td>152-660-5561</td>
-                        <td>04/03/2020 - 10 AM</td>
-                        <td>Accepted</td>
+                        <td>{{ patient.name }}</td>
+                        <td>{{ patient.age }}</td>
+                        <td>{{ patient.condition }}</td>
+                        <td>{{ patient.status }}</td>
                     </tr>
-                    <!-- More rows -->
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
-
     </div>
 </div>
 
