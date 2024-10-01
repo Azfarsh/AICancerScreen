@@ -19,5 +19,4 @@ urlpatterns = [
     path('subscribe-newsletter/', views.subscribe_newsletter, name='subscribe_newsletter'), 
     path('login/', views.login_view, name='login'),  # Login view
     path('register/', views.register, name='register'),  # Registration view
-      path('oauth/', include('social_django.urls', namespace='social')), 
 ]

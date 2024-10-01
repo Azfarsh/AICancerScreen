@@ -47,25 +47,23 @@ def subscribe_newsletter(request):
         # Add your subscription logic here (e.g., save to database, send email)
         return redirect('home')  # Redirect to home after subscription
     return redirect('home')  # Redirect to home if not POST
+
+
 def login_view(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
+        email = request.POST.get('email')
         password = request.POST.get('password')
-        remember = request.POST.get('remember') == 'on'  # Check if checkbox is checked
-
-        user = authenticate(request, username=username, password=password)
-
+        
+        # Authenticate the user
+        user = authenticate(request, username=email, password=password)
+        
         if user is not None:
             login(request, user)
-            if not remember:
-                request.session.set_expiry(0)  # Session expires on browser close
-            messages.success(request, 'You have successfully logged in.')
-            return redirect('home')  # Replace 'home' with your desired redirect URL
+            messages.success(request, "Login successful!")
+            return redirect('home')  # Redirect to the home page or dashboard
         else:
-            messages.error(request, 'Invalid username or password.')
-            # Optionally, render the login page with the previous input
-            return render(request, 'login.html')  # Render again with error
-
+            messages.error(request, "Invalid email or password. Please try again.")
+    
     return render(request, 'login.html')
 
 def register(request):

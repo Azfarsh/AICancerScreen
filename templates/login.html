@@ -1,113 +1,133 @@
 {% extends 'base.html' %}
-{% load static %}
 
-{% block title %}Login - AICancerScreen{% endblock %}
+{% block title %}Login Page{% endblock %}
 
 {% block content %}
-<style>
-    /* Styles for login section */
-    .login-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #f5f5f5;
-    }
+    <style>
+        body {
+            background-color: #e0f7fa; /* Light blue background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full height of the viewport */
+            margin: 0; /* Remove default margin */
+        }
+        .login-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 24rem;
+            border: 1px solid #d1d5db;
+        }
+        h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: #1f2937;
+        }
+        p {
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.125rem;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            display: block;
+            color: #374151;
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            transition: all 0.3s ease-in-out;
+        }
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+            transform: scale(1.05);
+        }
+        .forgot-password {
+            text-align: right;
+            margin-bottom: 1rem;
+        }
+        .forgot-password a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 0.375rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        .login-btn {
+            background: linear-gradient(to right, #2563eb, #7c3aed);
+            color: white;
+        }
+        .login-btn:hover {
+            background: linear-gradient(to right, #1d4ed8, #6d28d9);
+        }
+        .google-btn {
+            background-color: #ef4444;
+            color: white;
+        }
+        .google-btn:hover {
+            background-color: #dc2626;
+        }
+        .register-link {
+            text-align: center;
+        }
+        .register-link a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
 
-    .login-form {
-        background: white;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        width: 400px;
-    }
-
-    .login-form h2 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .form-group {
-        margin-bottom: 15px;
-    }
-
-    .form-group label {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: bold;
-    }
-
-    .form-group input {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-
-    .btn {
-        width: 100%;
-        background-color: #0046ff;
-        color: white;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        margin-top: 10px;  /* Added margin for spacing */
-    }
-
-    .btn:hover {
-        background-color: #0035c2;
-    }
-
-    .google-btn {
-        background-color: #db4437; /* Google Red */
-        color: white;
-        margin-top: 10px;  /* Added margin for spacing */
-    }
-
-    .google-btn:hover {
-        background-color: #c1351d; /* Darker shade */
-    }
-
-    .footer-links {
-        text-align: center;
-        margin-top: 20px;
-    }
-
-    .footer-links a {
-        color: #0046ff;
-        text-decoration: none;
-    }
-</style>
-
-<div class="login-container">
-    <form method="post" class="login-form">
-        {% csrf_token %}
+    <div class="login-container">
         <h2>Login</h2>
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-        <div class="form-group">
+        <p>Welcome back! Please login to your account.</p>
+        <form>
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+            
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <button type="submit" class="btn">Login</button>
-        {% if error %}
-            <p style="color: rgb(27, 138, 250); text-align: center;">{{ error }}</p>
-        {% endif %}
-        <div style="text-align: center; margin-top: 20px;">
-            <p>Or</p>
-            <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn google-btn">Login with Google</a>
-        </div>
-        <div class="footer-links">
-            <p><a href="#">Forgot Password?</a></p>
-            <p>Don't have an account? <a href="{% url 'register' %}">Sign Up</a></p>
-        </div>
-    </form>
-    
-</div>
-
+            <input type="password" id="password" placeholder="Enter your password" required>
+            
+            <div class="forgot-password">
+                <a href="#">Forgot Password?</a>
+            </div>
+            
+            <button type="submit" class="login-btn">Login</button>
+            <button type="button" class="google-btn">Login with Google</button>
+            
+            <div class="register-link">
+                <a href="#">Don't have an account? Register</a>
+            </div>
+        </form>
+    </div>
 {% endblock %}
