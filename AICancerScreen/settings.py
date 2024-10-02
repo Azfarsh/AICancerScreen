@@ -38,12 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cancer_detection',  # Your app
+    'social_django',  # Add social_django to INSTALLED_APPS
 ]
-
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = 'home'  # Redirect to the homepage after successful login
-LOGOUT_REDIRECT_URL = 'login'  # Redirect to login page after logout
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -53,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',  # Add this line
 ]
 
 ROOT_URLCONF = 'AICancerScreen.urls'
@@ -68,6 +65,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',  # Add this line
+                'social_django.context_processors.login_redirect',  # Add this line
             ],
         },
     },
@@ -130,3 +129,20 @@ MESSAGE_TAGS = {
 
 SITE_ID = 1
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Authentication settings
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'
+
+# Social Auth settings
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'your-google-oauth2-key'  # Replace with your Google OAuth2 key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'your-google-oauth2-secret'  # Replace with your Google OAuth2 secret
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
